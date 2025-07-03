@@ -1,77 +1,39 @@
-# Anxiety Detection and Sentiment Analysis App
+MindCare : AI Driven Mental Health Support System 🧠 MindCare – AI-Driven Mental Health Support System MindCare is an AI-powered application designed to provide preliminary mental health support by analyzing user input, classifying emotional states, and engaging through a smart chatbot interface. The project integrates Natural Language Processing (NLP) with machine learning to understand the sentiments and mental well-being of users based on their text inputs.
 
-This application consists of a FastAPI backend for anxiety detection and sentiment analysis, and a Streamlit frontend for user interaction.
+🔍 Key Features & Components 🧩 1. Text Classification Using BERT We fine-tuned the BERT (Bidirectional Encoder Representations from Transformers) model for the text classification task.
 
-## Setup
+This model helps in detecting specific mental health conditions or emotional categories from user input, enabling deeper understanding of the user's psychological state.
 
-### 1. Create a Python Virtual Environment
+BERT's contextual understanding ensures high accuracy in understanding subtle nuances in language (e.g., sarcasm, anxiety-related expressions).
 
-For Windows:
-```bash
-# Create a new virtual environment
-python -m venv venv
+📊 2. Sentiment Analysis with VADER & Random Forest VADER (Valence Aware Dictionary and sEntiment Reasoner) is used for rule-based sentiment scoring.
 
-# Activate the virtual environment
-.\venv\Scripts\activate
-```
+Effective for quick classification into positive, negative, or neutral sentiments.
 
-### 2. Install Requirements
+Additionally, we used a Random Forest Classifier trained on labeled sentiment data to improve performance and handle more complex sentiment patterns.
 
-Install the required packages:
-```bash
-pip install -r requirements.txt
-```
+This hybrid approach combines the interpretability of VADER with the robustness of ensemble learning.
 
-## Running the Application
+🤖 3. Interactive Mental Health Chatbot Built a chatbot interface that interacts with users in real-time.
 
-### 1. Start the FastAPI Backend
+The chatbot:
 
-```bash
-uvicorn app:app --reload
-```
+Analyzes messages using BERT and sentiment models.
 
-The API will be available at `http://localhost:8000`
+Provides empathetic responses based on the classified mental state.
 
-You can access the API documentation at `http://localhost:8000/docs`
+Offers general guidance or supportive prompts depending on user input.
 
-### 2. Start the Streamlit Frontend
+Designed with a focus on non-judgmental, friendly, and accessible interactions.
 
-In a new terminal window, run:
-```bash
-streamlit run streamlit_app.py
-```
+🛠️ Tech Stack
 
-The Streamlit app will open automatically in your default web browser, typically at `http://localhost:8501`
+Tool/Library -----> Purpose Python -------> Core programming language Jupyter Notebook ------> Development & experimentation Hugging Face ------> Pre-trained BERT model integration NLTK / VADER -------> Sentiment analysis Scikit-learn -----> Random Forest Classifier Pandas, NumPy ------> Data manipulation & preprocessing
 
-## Using the Application
+🎯 Objectives & Impact Create a supportive AI system that can detect early signs of emotional distress.
 
-1. Enter your text in the text area
-2. Choose either:
-   - "Detect Anxiety" to analyze anxiety levels in the text
-   - "Analyze Sentiment" to get sentiment scores for the text
-3. Results will be displayed below the buttons
+Encourage users to express their feelings in a safe, anonymous space.
 
-## API Endpoints
+Provide data-driven insights into emotional trends using NLP.
 
-- POST `/predict`: Anxiety detection
-- POST `/sentiment`: Sentiment analysis
-
-Both endpoints accept JSON with a "text" field:
-```json
-{
-    "text": "Your text here"
-}
-```
-
-## Model Information
-
-The application uses:
-- A fine-tuned BERT model for anxiety detection
-- VADER Sentiment for sentiment analysis
-
-## Deactivating the Virtual Environment
-
-When you're done, you can deactivate the virtual environment:
-```bash
-deactivate
-```
+Lay the groundwork for future integration with mental health professionals or apps.
